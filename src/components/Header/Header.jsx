@@ -1,4 +1,5 @@
-import reactImage from '../assets/react-logo-xs.png';
+import reactImage from '../../assets/react-logo-xs.png';
+import './Header.css';
 
 const reactTitles=['React Fundamentos','React Bases','React Principios'];
 
