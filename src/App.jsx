@@ -1,41 +1,8 @@
-import reactImage from './assets/react-logo-xs.png';
-
+import Header from './components/Header.jsx'
+import Main from './components/Main.jsx'
+import CoreConcepts from './components/CoreConcepts.jsx';
 import { CORE_CONCEPTS } from './data.js';
 
-const reactTitles=['React Fundamentos','React Bases','React Principios'];
-
-function getRandomIntInRange(min,max){
-  return Math.floor(Math.random()*(max-min +1) + min);
-}
-
-function Header() {
-  const titleWinner=reactTitles[getRandomIntInRange(0,2)];
- 
-  return (
-    <header>
-      <img src={reactImage} alt="React logo" />
-      <h1>{titleWinner} </h1>
-      <p>
-        ¡Conceptos fundamentales de React que necesitas conocer para desarrollar
-        cualquier app con esta famosa librería!
-      </p>
-    </header>
-  );
-}
-function Main(){
-  return(
-    <main>
-      <h2>¡Comenzamos Picando Código en React.Js!</h2>
-    </main>
-  );
-}
-function CoreConcepts({imagePath, title, description}){
-  return <div>
-    <img src={imagePath} alt="..." />
-    <h3>{title}</h3>
-    <p>{description}</p>
-  </div>
-}
 function App() {
   return (
     <div>
