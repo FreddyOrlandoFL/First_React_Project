@@ -20,7 +20,10 @@ function App() {
       <section id="reactExamples">
         <h2>Ejemplos React</h2>
         <menu>
-          <TabButton label="atributo">Componentes</TabButton>
+          <TabButton label="atributo-1">Componentes</TabButton>
+          <TabButton label="atributo-2">JSX</TabButton>
+          <TabButton label="atributo-3">Props</TabButton>
+          <TabButton label="atributo-4">Estados</TabButton>
         </menu>
       </section>
       <Main/>
