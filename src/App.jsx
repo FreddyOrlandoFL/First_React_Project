@@ -5,6 +5,9 @@ import { CORE_CONCEPTS } from './data.js';
 import TabButton from './components/TabButton/TabButton.jsx';
 
 function App() {
+  function handleClickMenu(){
+    console.log("Ey! Estas pulsando un boton de mi menu!");
+  }
   return (
     <div>
       <Header/>
@@ -20,11 +23,12 @@ function App() {
       <section id="reactExamples">
         <h2>Ejemplos React</h2>
         <menu>
-          <TabButton label="atributo-1">Componentes</TabButton>
-          <TabButton label="atributo-2">JSX</TabButton>
-          <TabButton label="atributo-3">Props</TabButton>
-          <TabButton label="atributo-4">Estados</TabButton>
+          <TabButton onClick={handleClickMenu}>Componentes</TabButton>
+          <TabButton onClick={handleClickMenu}>JSX</TabButton>
+          <TabButton onClick={handleClickMenu}>Props</TabButton>
+          <TabButton onClick={handleClickMenu}>Estados</TabButton>
         </menu>
+        Contenido Dinamico
       </section>
       <Main/>
     </div>
