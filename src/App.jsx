@@ -5,7 +5,9 @@ import { CORE_CONCEPTS } from './data.js';
 import TabButton from './components/TabButton/TabButton.jsx';
 
 function App() {
+  let tabContent="Por favor. pule un boton del menu";
   function handleClickMenu(selectedButton){
+    tabContent=selectedButton;
     console.log(`Ey! Estas pulsando un boton de mi menu! ${selectedButton}`);
   }
   return (
@@ -28,7 +30,7 @@ function App() {
           <TabButton onClick={()=>handleClickMenu("Props")}>Props</TabButton>
           <TabButton onClick={()=>handleClickMenu("Estados")}>Estados</TabButton>
         </menu>
-        Contenido Dinamico
+        {tabContent}
       </section>
       <Main/>
     </div>
