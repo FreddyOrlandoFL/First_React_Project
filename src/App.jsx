@@ -4,9 +4,10 @@ import CoreConcepts from './components/CoreConcepts/CoreConcepts.jsx';
 import { CORE_CONCEPTS } from './data.js';
 import TabButton from './components/TabButton/TabButton.jsx';
 import { useState } from 'react';
+import { EXAMPLES } from './data.js';
 
 function App() {
-  const [selectedTopic,setSelectedTopic] =useState("Por favor. pule un boton del menu");
+  const [selectedTopic,setSelectedTopic] =useState("components");
   function handleClickMenu(selectedButton){
     setSelectedTopic(selectedButton);
     console.log(`Ey! Estas pulsando un boton de mi menu! ${selectedTopic}`);
@@ -27,12 +28,20 @@ function App() {
       <section id="reactExamples">
         <h2>Ejemplos React</h2>
         <menu>
-          <TabButton onClick={()=>handleClickMenu("Componentes")}>Componentes</TabButton>
-          <TabButton onClick={()=>handleClickMenu("JSX")}>JSX</TabButton>
-          <TabButton onClick={()=>handleClickMenu("Props")}>Props</TabButton>
-          <TabButton onClick={()=>handleClickMenu("Estados")}>Estados</TabButton>
+          <TabButton onClick={()=>handleClickMenu("components")}>Componentes</TabButton>
+          <TabButton onClick={()=>handleClickMenu("jsx")}>JSX</TabButton>
+          <TabButton onClick={()=>handleClickMenu("props")}>Props</TabButton>
+          <TabButton onClick={()=>handleClickMenu("state")}>Estados</TabButton>
         </menu>
-        {selectedTopic}
+        <div id="tab-content">
+          <h3>{EXAMPLES[selectedTopic].title}</h3>
+          <p>{EXAMPLES[selectedTopic].description}</p>
+          <pre>
+            <code>
+              {EXAMPLES[selectedTopic].code}
+            </code>
+          </pre>
+        </div>
       </section>
       <Main/>
     </div>
