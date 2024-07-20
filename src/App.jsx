@@ -3,13 +3,15 @@ import Main from './components/Main/Main.jsx'
 import CoreConcepts from './components/CoreConcepts/CoreConcepts.jsx';
 import { CORE_CONCEPTS } from './data.js';
 import TabButton from './components/TabButton/TabButton.jsx';
+import { useState } from 'react';
 
 function App() {
-  let tabContent="Por favor. pule un boton del menu";
+  const [selectedTopic,setSelectedTopic] =useState("Por favor. pule un boton del menu");
   function handleClickMenu(selectedButton){
-    tabContent=selectedButton;
-    console.log(`Ey! Estas pulsando un boton de mi menu! ${selectedButton}`);
+    setSelectedTopic(selectedButton);
+    console.log(`Ey! Estas pulsando un boton de mi menu! ${selectedTopic}`);
   }
+  console.log("El componente APP esta siendo renderizado  y ejecutado!")
   return (
     <div>
       <Header/>
@@ -30,7 +32,7 @@ function App() {
           <TabButton onClick={()=>handleClickMenu("Props")}>Props</TabButton>
           <TabButton onClick={()=>handleClickMenu("Estados")}>Estados</TabButton>
         </menu>
-        {tabContent}
+        {selectedTopic}
       </section>
       <Main/>
     </div>
