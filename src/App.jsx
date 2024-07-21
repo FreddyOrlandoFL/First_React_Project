@@ -7,12 +7,33 @@ import { useState } from 'react';
 import { EXAMPLES } from './data.js';
 
 function App() {
-  const [selectedTopic,setSelectedTopic] =useState("components");
+  const [selectedTopic, setSelectedTopic] = useState(null);
   function handleClickMenu(selectedButton){
     setSelectedTopic(selectedButton);
-    console.log(`Ey! Estas pulsando un boton de mi menu! ${selectedTopic}`);
+    console.log(`Ey! Estas pulsando el botón ${selectedTopic}`);
   }
-  console.log("El componente APP esta siendo renderizado  y ejecutado!")
+  console.log("El componente App esta siendo renderizado y ejecutado!!");
+
+  let tabContent = (
+    <p>
+      Aquí se va a mostrar información sobre una característica de React, para
+      ello elige una opción del menú
+    </p>
+  );
+
+  
+  if (selectedTopic) {
+    tabContent = (
+      <div id="tab-content">
+        <h3>{EXAMPLES[selectedTopic].title}</h3>
+        <p>{EXAMPLES[selectedTopic].description}</p>
+        <pre>
+          <code>{EXAMPLES[selectedTopic].code}</code>
+        </pre>
+      </div>
+    );
+  }
+
   return (
     <div>
       <Header/>
@@ -28,20 +49,16 @@ function App() {
       <section id="reactExamples">
         <h2>Ejemplos React</h2>
         <menu>
-          <TabButton onClick={()=>handleClickMenu("components")}>Componentes</TabButton>
-          <TabButton onClick={()=>handleClickMenu("jsx")}>JSX</TabButton>
-          <TabButton onClick={()=>handleClickMenu("props")}>Props</TabButton>
-          <TabButton onClick={()=>handleClickMenu("state")}>Estados</TabButton>
+          <TabButton  isSelected={selectedTopic === 'components'} onClick={() => handleClickMenu("components")}>
+            Componentes
+          </TabButton>
+          <TabButton  isSelected={selectedTopic === 'jsx'} onClick={() => handleClickMenu("jsx")}>JSX</TabButton>
+          <TabButton  isSelected={selectedTopic === 'props'} onClick={() => handleClickMenu("props")}>Props</TabButton>
+          <TabButton  isSelected={selectedTopic === 'state'} onClick={() => handleClickMenu("state")}>
+            Estados
+          </TabButton>
         </menu>
-        <div id="tab-content">
-          <h3>{EXAMPLES[selectedTopic].title}</h3>
-          <p>{EXAMPLES[selectedTopic].description}</p>
-          <pre>
-            <code>
-              {EXAMPLES[selectedTopic].code}
-            </code>
-          </pre>
-        </div>
+        {tabContent}
       </section>
       <Main/>
     </div>
