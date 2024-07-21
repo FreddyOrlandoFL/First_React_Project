@@ -40,10 +40,9 @@ function App() {
       <section id="coreConcepts">
       <h2>Principales Características</h2>
         <div>
-          <CoreConcepts {...CORE_CONCEPTS[0]}/>
-          <CoreConcepts {...CORE_CONCEPTS[1]}/>
-          <CoreConcepts {...CORE_CONCEPTS[2]}/>
-          <CoreConcepts imagePath={CORE_CONCEPTS[3].imagePath}  title={CORE_CONCEPTS[3].title} description={CORE_CONCEPTS[3].description}/>
+          {CORE_CONCEPTS.map((conceptItem, index)=> 
+            <CoreConcepts key={index} {...conceptItem} />
+          )}
         </div>
       </section>
       <section id="reactExamples">
